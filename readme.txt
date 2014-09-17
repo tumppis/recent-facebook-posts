@@ -346,5 +346,8 @@ add_filter('rfbp_cache_time', 'my_rfbp_cache_time');
 
 == Upgrade Notice ==
 
+= 2.0.1 =
+Fixed issue with Emojis in Facebook statuses, updated translations and various other improvements.
+
 = 2.0 =
 Fixed issue with Emojis breaking all posts. Various other code improvements.
