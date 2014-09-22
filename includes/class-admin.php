@@ -111,8 +111,8 @@ class RFBP_Admin {
 
 		// appearance opts
 		$opts['page_link_text'] = strip_tags( trim( $opts['page_link_text'] ), '<span><strong><b><em><i><img>' );
-		$opts['img_height'] = ! empty( $opts['img_height'] ) ? intval( $opts['img_height'] ) : '';
-		$opts['img_width'] = ! empty( $opts['img_width'] ) ? intval( $opts['img_width'] ) : '';
+		$opts['img_height'] = ! empty( $opts['img_height'] ) ? absint( $opts['img_height'] ) : '';
+		$opts['img_width'] = ! empty( $opts['img_width'] ) ? absint( $opts['img_width'] ) : '';
 		$opts['load_css'] = isset( $opts['load_css'] ) ? 1 : 0;
 		$opts['show_links'] = isset($opts['show_links'] ) ? 1 : 0;
 
