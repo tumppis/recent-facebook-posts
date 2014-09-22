@@ -40,6 +40,7 @@ If you have [created your own language pack](http://codex.wordpress.org/Translat
 
 **Other Links**
 
+* [Contribute to the Recent Facebook Posts plugin on GitHub](https://github.com/dannyvankooten/wordpress-recent-facebook-posts)
 * Using MailChimp to send out email newsletters? You should [try MailChimp for WordPress](http://wordpress.org/plugins/mailchimp-for-wp/).
 * Check out more [WordPress plugins](http://dannyvankooten.com/wordpress-plugins/) by the same author
 * Follow [@DannyvanKooten](http://twitter.com/DannyvanKooten) on Twitter.
@@ -68,7 +69,7 @@ This plugin requires a Facebook application to fetch posts from Facebook.
 * Take a look at the [screenshots](http://wordpress.org/extend/plugins/recent-facebook-posts/screenshots/), they will tell you which values from Facebook you need.
 * The plugin works with personal profiles, but only to a certain extend. I am not actively supporting personal profiles because of many privacy settings related issues.
 
-Ran into an error? Have a look at the [FAQ](http://wordpress.org/plugins/recent-facebook-posts/faq/) for solutions to common problems.
+Ran into an error? Have a look at the [FAQ](http://wordpress.org/plugins/recent-facebook-posts/faq/) for solutions to common problems or [open an issue on GitHub](https://github.com/dannyvankooten/wordpress-recent-facebook-posts/issues).
 
 == Frequently Asked Questions ==
 
