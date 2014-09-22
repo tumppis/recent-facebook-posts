@@ -106,7 +106,9 @@ class RFBP_Admin {
 			delete_transient('rfbp_posts_fallback');
 
 			// test facebook api
-			$this->test_facebook_api( $opts['app_id'], $opts['app_secret'], $opts['fb_id'] );
+			if( ! empty( $opts['app_id'] ) && ! empty( $opts['app_secret'] ) && ! empty( $opts['fb_id'] ) ) {
+				$this->test_facebook_api( $opts['app_id'], $opts['app_secret'], $opts['fb_id'] );
+			}
 		}
 
 		// appearance opts
@@ -130,8 +132,10 @@ class RFBP_Admin {
 	 * Load CSS, only called on RFBP settings page.
 	 */
 	public function load_css() {
-		wp_enqueue_style( 'rfb_admin_css', plugins_url( 'recent-facebook-posts/assets/css/admin.css' ) );
-		wp_enqueue_script( 'rfb_admin_js', plugins_url( 'recent-facebook-posts/assets/js/admin.js' ), array( 'jquery' ), null, true );
+		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+
+		wp_enqueue_style( 'rfb_admin_css', plugins_url( 'recent-facebook-posts/assets/css/admin' . $suffix . '.css' ) );
+		wp_enqueue_script( 'rfb_admin_js', plugins_url( 'recent-facebook-posts/assets/js/admin' . $suffix . '.js' ), array( 'jquery' ), RFBP_VERSION, true );
 	}
 
 	/**
