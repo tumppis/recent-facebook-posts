@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Recent Facebook Posts 2.0.2\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/recent-facebook-posts\n"
-"POT-Creation-Date: 2014-09-22 10:58:50+00:00\n"
+"POT-Creation-Date: 2014-09-22 11:19:15+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,19 +25,19 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Textdomain-Support: yes\n"
 
-#: includes/class-admin.php:146
+#: includes/class-admin.php:150
 msgid "<strong>Cache cleared!</strong> You succesfully cleared the cache."
 msgstr ""
 
-#: includes/class-admin.php:159
+#: includes/class-admin.php:163
 msgid "Settings"
 msgstr ""
 
-#: includes/class-admin.php:188
+#: includes/class-admin.php:192
 msgid "Your configuration seems to be okay and working. Nice work!."
 msgstr ""
 
-#: includes/class-admin.php:190
+#: includes/class-admin.php:194
 msgid "The following error was encountered when testing your configuration."
 msgstr ""
 
@@ -81,6 +81,10 @@ msgstr ""
 msgid "Recent Facebook Posts"
 msgstr ""
 
+#: includes/class-widget.php:38
+msgid "You need to <a href=\"%s\">configure Recent Facebook Posts</a> first."
+msgstr ""
+
 #: includes/class-widget.php:42
 msgid "Title:"
 msgstr ""
@@ -109,7 +113,7 @@ msgstr ""
 msgid "Show link previews?"
 msgstr ""
 
-#: includes/functions/global.php:22 includes/views/settings_page.html.php:67
+#: includes/functions/global.php:22 includes/views/settings_page.html.php:69
 msgid "Find us on Facebook"
 msgstr ""
 
@@ -181,94 +185,95 @@ msgid ""
 "href=\"%s\">installation instructions</a>."
 msgstr ""
 
-#: includes/views/settings_page.html.php:37
+#: includes/views/settings_page.html.php:38
 msgid "Facebook App ID/API Key"
 msgstr ""
 
-#: includes/views/settings_page.html.php:40
+#: includes/views/settings_page.html.php:42
 msgid "Get your App ID from %s."
 msgstr ""
 
-#: includes/views/settings_page.html.php:45
+#: includes/views/settings_page.html.php:47
 msgid "Facebook App Secret"
 msgstr ""
 
-#: includes/views/settings_page.html.php:48
+#: includes/views/settings_page.html.php:50
 msgid "Get your App Secret from %s."
 msgstr ""
 
-#: includes/views/settings_page.html.php:53
+#: includes/views/settings_page.html.php:55
 msgid "Facebook Page ID or Slug"
 msgstr ""
 
-#: includes/views/settings_page.html.php:56
+#: includes/views/settings_page.html.php:58
 msgid ""
 "Use <a href=\"%s\">this tool</a> to find the numeric ID of your Facebook "
 "page."
 msgstr ""
 
-#: includes/views/settings_page.html.php:62
+#: includes/views/settings_page.html.php:64
 msgid "Appearance"
 msgstr ""
 
-#: includes/views/settings_page.html.php:66
+#: includes/views/settings_page.html.php:68
 msgid "Link text"
 msgstr ""
 
-#: includes/views/settings_page.html.php:71
+#: includes/views/settings_page.html.php:73
 msgid "Open links in new window?"
 msgstr ""
 
-#: includes/views/settings_page.html.php:76
+#: includes/views/settings_page.html.php:78
 msgid "Load some default styles?"
 msgstr ""
 
-#: includes/views/settings_page.html.php:82
+#: includes/views/settings_page.html.php:84
 msgid "Image size"
 msgstr ""
 
-#: includes/views/settings_page.html.php:85
+#: includes/views/settings_page.html.php:87
 msgid "Don't show images"
 msgstr ""
 
-#: includes/views/settings_page.html.php:86
+#: includes/views/settings_page.html.php:88
 msgid "Thumbnail"
 msgstr ""
 
-#: includes/views/settings_page.html.php:87
+#: includes/views/settings_page.html.php:89
 msgid "Normal"
 msgstr ""
 
-#: includes/views/settings_page.html.php:94
+#: includes/views/settings_page.html.php:96
 msgid "Image dimensions"
 msgstr ""
 
-#: includes/views/settings_page.html.php:94
+#: includes/views/settings_page.html.php:96
 msgid "(in pixels, optional)"
 msgstr ""
 
-#: includes/views/settings_page.html.php:97
+#: includes/views/settings_page.html.php:99
 msgid "Max Width"
 msgstr ""
 
-#: includes/views/settings_page.html.php:101
+#: includes/views/settings_page.html.php:103
 msgid "Max Height"
 msgstr ""
 
-#: includes/views/settings_page.html.php:105
+#: includes/views/settings_page.html.php:107
 msgid "Leave empty for default sizing"
 msgstr ""
 
-#: includes/views/settings_page.html.php:112
-msgid "Save Changes"
+#: includes/views/settings_page.html.php:118
+#: includes/views/settings_page.html.php:122
+msgid "Test Configuration"
 msgstr ""
 
 #: includes/views/settings_page.html.php:119
 msgid "Test your plugin configuration using the button below."
 msgstr ""
 
-#: includes/views/settings_page.html.php:122
-msgid "Test Configuration"
+#: includes/views/settings_page.html.php:125
+msgid "Facebook Posts Cache"
 msgstr ""
 
 #: includes/views/settings_page.html.php:126
@@ -278,61 +283,61 @@ msgid ""
 "using the button below."
 msgstr ""
 
-#: includes/views/settings_page.html.php:129
+#: includes/views/settings_page.html.php:130
 msgid "Clear Cache"
 msgstr ""
 
-#: includes/views/settings_page.html.php:138
+#: includes/views/settings_page.html.php:139
 msgid "Donate $10, $20 or $50"
 msgstr ""
 
-#: includes/views/settings_page.html.php:139
+#: includes/views/settings_page.html.php:140
 msgid ""
 "I spent a lot of time developing this plugin and offering support for it. "
 "If you like it, consider supporting this plugin by donating a token of your "
 "appreciation."
 msgstr ""
 
-#: includes/views/settings_page.html.php:150
+#: includes/views/settings_page.html.php:151
 msgid "Donate with PayPal"
 msgstr ""
 
-#: includes/views/settings_page.html.php:155
+#: includes/views/settings_page.html.php:156
 msgid "Some other ways to support this plugin"
 msgstr ""
 
-#: includes/views/settings_page.html.php:157
+#: includes/views/settings_page.html.php:158
 msgid "Leave a %s review on WordPress.org"
 msgstr ""
 
-#: includes/views/settings_page.html.php:158
+#: includes/views/settings_page.html.php:159
 msgid "Write about the plugin from your blog."
 msgstr ""
 
-#: includes/views/settings_page.html.php:159
+#: includes/views/settings_page.html.php:160
 msgid "Tweet about Recent Facebook Posts"
 msgstr ""
 
-#: includes/views/settings_page.html.php:160
+#: includes/views/settings_page.html.php:161
 msgid "Vote \"works\" on the WordPress.org plugin page"
 msgstr ""
 
-#: includes/views/settings_page.html.php:165
+#: includes/views/settings_page.html.php:166
 msgid "Looking for support?"
 msgstr ""
 
-#: includes/views/settings_page.html.php:166
+#: includes/views/settings_page.html.php:167
 msgid "Please use the <a href=\"%s\">plugin support forums</a> on WordPress.org."
 msgstr ""
 
-#: includes/views/settings_page.html.php:167
+#: includes/views/settings_page.html.php:168
 msgid ""
 "Take a close look at the <a href=\"%s\">installation instructions</a> for "
 "help configuring the plugin and registering your own Facebook application, "
 "which is required to get this plugin to work."
 msgstr ""
 
-#: includes/views/settings_page.html.php:171
+#: includes/views/settings_page.html.php:172
 msgid "Other Useful plugins"
 msgstr ""
 
