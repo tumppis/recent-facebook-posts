@@ -137,6 +137,9 @@ class RFBP_Public {
 ?>
 
 					<<?php echo $atts['el']; ?> class="rfbp-post">
+					<a class="rfbp-link" href="<?php echo $p['post_link']; ?>" rel="external nofollow" target="<?php echo $link_target; ?>">
+						<h3><?php echo $p['name']; ?></h3>
+					</a>
 					<div class="rfbp-text">
 
 						<?php
@@ -179,7 +182,7 @@ class RFBP_Public {
 					<p class="rfbp-image-wrap">
 						<a class="rfbp-image-link" target="<?php echo $link_target; ?>" href="<?php echo $p['url']; ?>" rel="external nofollow">
 							<?php $max_img_width = ( ! empty( $opts['img_width'] ) ) ? $opts['img_width'].'px' : '100%'; $max_img_height = ( !empty( $opts['img_height'] ) ) ? $opts['img_height'].'px' : 'none'; ?>
-							<img class="rfbp-image" src="<?php echo esc_attr( $p['image'] . '?type=' . $opts['img_size'] ); ?>" style="<?php echo esc_attr( "max-width: {$max_img_width}; max-height: {$max_img_height}" ); ?>" alt="" />
+							<img class="rfbp-image" src="<?php echo $p['image']; ?>" style="<?php echo esc_attr( "max-width: {$max_img_width}; max-height: {$max_img_height}" ); ?>" alt="" />
 						</a>
 					</p>
 					<?php } ?>
