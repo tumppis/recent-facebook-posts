@@ -184,6 +184,7 @@ class RFBP_Public {
 							<?php $max_img_width = ( ! empty( $opts['img_width'] ) ) ? $opts['img_width'].'px' : '100%'; $max_img_height = ( !empty( $opts['img_height'] ) ) ? $opts['img_height'].'px' : 'none'; ?>
 							<img class="rfbp-image" src="<?php echo $p['image']; ?>" style="<?php echo esc_attr( "max-width: {$max_img_width}; max-height: {$max_img_height}" ); ?>" alt="" />
 						</a>
+						<span class="rfbp-video-link"></span>
 					</p>
 					<?php } ?>
 					<p class="rfbp-post-link-wrap">

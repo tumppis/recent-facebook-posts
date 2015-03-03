@@ -28,12 +28,14 @@ span.rfbp-link-description{ margin-top:12px; }
 .rfbp-like-count > span{ display:none; }
 .rfbp-comment-count > span{ display:none; }
 
-.rfbp-image-wrap { display:block; margin:1em 0; max-width:100%; }
+.rfbp-image-wrap { position:relative; display:inline-block; margin:1em 0; max-width:100%; }
 .rfbp-image-link{ margin:0; padding:0; float:none; line-height:0; max-width:100%; display:inline-block; }
 .rfbp-image{ margin:0; padding:0; border:1px solid #ccc; }
 
 .rfbp-text{ margin-top:0 !important; padding-top:0;}
 .rfbp-text a{ word-break:break-all; }
+
+.rfbp-video-link { position:absolute; display:block; pointer-events:none; background:url('../img/play.png'); background-size:40px 40px; margin-left:-20px; margin-top:-20px; height:40px; width:40px; top:50%; left:50%; }
 
 /* widget */
 .rfbp-widget { }
