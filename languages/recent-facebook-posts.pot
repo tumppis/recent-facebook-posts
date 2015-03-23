@@ -2,10 +2,10 @@
 # This file is distributed under the GPL3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Recent Facebook Posts 2.0.4\n"
+"Project-Id-Version: Recent Facebook Posts 2.0.5\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/recent-facebook-posts\n"
-"POT-Creation-Date: 2015-02-19 05:46:22+00:00\n"
+"POT-Creation-Date: 2015-03-23 13:12:15+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -117,53 +117,53 @@ msgstr ""
 msgid "Find us on Facebook"
 msgstr ""
 
-#: includes/functions/helpers.php:23
+#: includes/functions/helpers.php:32
 msgid "just now"
 msgstr ""
 
-#: includes/functions/helpers.php:42
+#: includes/functions/helpers.php:51
 msgid "1 year ago"
 msgid_plural "%d years ago"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/functions/helpers.php:46
+#: includes/functions/helpers.php:55
 msgid "1 month ago"
 msgid_plural "%d months ago"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/functions/helpers.php:50
+#: includes/functions/helpers.php:59
 msgid "1 week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/functions/helpers.php:54
+#: includes/functions/helpers.php:63
 msgid "1 day ago"
 msgid_plural "%d days ago"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/functions/helpers.php:58
+#: includes/functions/helpers.php:67
 msgid "1 hour ago"
 msgid_plural "%d hours ago"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/functions/helpers.php:62
+#: includes/functions/helpers.php:71
 msgid "1 minute ago"
 msgid_plural "%d minutes ago"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/functions/helpers.php:66
+#: includes/functions/helpers.php:75
 msgid "1 second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/functions/helpers.php:70
+#: includes/functions/helpers.php:79
 msgid "Some time ago"
 msgstr ""
 
