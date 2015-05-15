@@ -156,9 +156,9 @@ class RFBP_Public {
 ?>
 
 					<<?php echo $atts['el']; ?> class="rfbp-post">
-					<a class="rfbp-link" href="<?php echo $p['post_link']; ?>" rel="external nofollow" target="<?php echo $link_target; ?>">
-						<h3><?php echo $p['name']; ?></h3>
-					</a>
+					<h4 class="rfbp-heading"><a class="rfbp-link" href="<?php echo $p['post_link']; ?>" rel="external nofollow" target="<?php echo $link_target; ?>">
+						<?php echo $p['name']; ?>
+					</a></h4>
 					<div class="rfbp-text">
 
 						<?php
