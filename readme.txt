@@ -4,7 +4,7 @@ Donate link: https://dannyvankooten.com/donate/
 Tags: facebook,posts,fanpage,recent posts,fb,like box alternative,widget,facebook widget,widgets,facebook updates,like button,fb posts
 Requires at least: 3.7
 Tested up to: 4.2.2
-Stable tag: 2.0.7
+Stable tag: 2.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,6 +35,8 @@ Dutch (nl_NL) - [Danny van Kooten](https://dannyvankooten.com/)<br />
 Spanish (es_ES) - [Hermann Bravo](http://hbravo.com/)
 Swedish (sv_SE) - [Robin Wellström](http://robinwellstrom.se/)
 German (de_DE) - [Henrik Heller ](http://www.gmx.net/)
+Italian (it_IT) - [Daniele Chianucci](http://frozen.me/)
+Turkish (tr_TR) - Halukcan Pehlivanoğlu
 
 _Looking for more translations.._
 
@@ -46,7 +48,7 @@ If you have [created your own language pack](http://codex.wordpress.org/Translat
 * Using MailChimp to send out email newsletters? You should [try MailChimp for WordPress](https://wordpress.org/plugins/mailchimp-for-wp/).
 * Want an unobtrusive conversion booster? Have a look at the [Scroll Triggered Boxes plugin](https://wordpress.org/plugins/scroll-triggered-boxes/).
 * Check out more [WordPress plugins](https://dannyvankooten.com/wordpress-plugins/) by the same author
-* Follow [@DannyvanKooten](https://twitter.com/DannyvanKooten) on Twitter.
+* Follow [@DannyvanKooten](https://twitter.com/DannyvanKooten) or [@ibericode](https://twitter.com/ibericode) on Twitter.
 
 == Installation ==
 
@@ -154,6 +156,12 @@ add_filter('rfbp_cache_time', 'my_rfbp_cache_time');
 3. This is where you'll find your Facebook Page Slug on Facebook.com.
 
 == Changelog ==
+
+= 2.0.8 - July 1, 2015 =
+
+**Additions**
+
+- Added Turkish translations, thanks to Halukcan Pehlivanoğlu!
 
 = 2.0.7 - May 15, 2015 =
 
