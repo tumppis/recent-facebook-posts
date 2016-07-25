@@ -1,14 +1,14 @@
 === Plugin Name ===
 Contributors: DvanKooten
 Donate link: https://dannyvankooten.com/donate/
-Tags: facebook,posts,fanpage,recent posts,fb,like box alternative,widget,facebook widget,widgets,facebook updates,like button,fb posts
-Requires at least: 3.7
-Tested up to: 4.2.2
+Tags: facebook, posts, fb, widget, facebook widget, facebook posts
+Requires at least: 3.8
+Tested up to: 4.5.3
 Stable tag: 2.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Lists most recent Facebook posts from public Facebook pages. A faster, prettier and more customizable alternative to Facebooks Like Box.
+Lists most recent Facebook posts from public Facebook pages. A faster, prettier & more customizable alternative to Facebooks Like Box.
 
 == Description ==
 
@@ -37,6 +37,8 @@ Swedish (sv_SE) - [Robin Wellström](http://robinwellstrom.se/)
 German (de_DE) - [Henrik Heller ](http://www.gmx.net/)
 Italian (it_IT) - [Daniele Chianucci](http://frozen.me/)
 Turkish (tr_TR) - Halukcan Pehlivanoğlu
+Hungarian (hu_HU) - Daniel Kocsis
+Polish (pl_PL) - Sofiah Davenport
 
 _Looking for more translations.._
 
@@ -46,8 +48,7 @@ If you have [created your own language pack](http://codex.wordpress.org/Translat
 
 * [Contribute to the Recent Facebook Posts plugin on GitHub](https://github.com/dannyvankooten/wordpress-recent-facebook-posts)
 * Using MailChimp to send out email newsletters? You should [try MailChimp for WordPress](https://wordpress.org/plugins/mailchimp-for-wp/).
-* Want an unobtrusive conversion booster? Have a look at the [Scroll Triggered Boxes plugin](https://wordpress.org/plugins/scroll-triggered-boxes/).
-* Check out more [WordPress plugins](https://dannyvankooten.com/wordpress-plugins/) by the same author
+* Want an unobtrusive conversion booster? Have a look at the [Boxzilla pop-up plugin](https://wordpress.org/plugins/boxzilla/).
 * Follow [@DannyvanKooten](https://twitter.com/DannyvanKooten) or [@ibericode](https://twitter.com/ibericode) on Twitter.
 
 == Installation ==
