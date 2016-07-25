@@ -3,7 +3,7 @@
 Plugin Name: Recent Facebook Posts
 Plugin URI: https://dannyvankooten.com/donate/
 Description: Lists most recent posts from a public Facebook page.
-Version: 2.0.8
+Version: 2.0.9
 Author: Danny van Kooten
 Author URI: https://dannyvankooten.com/
 Text Domain: recent-facebook-posts
@@ -32,7 +32,7 @@ if( ! defined( 'ABSPATH' ) ) {
 }
 
 // Plugin Constants
-define( 'RFBP_VERSION', '2.0.8' );
+define( 'RFBP_VERSION', '2.0.9' );
 define( 'RFBP_PLUGIN_DIR', dirname( __FILE__ ) . '/' );
 
 /**
