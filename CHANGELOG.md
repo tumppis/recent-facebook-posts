@@ -1,11 +1,16 @@
 Changelog
 ============
 
-### Master (unreleased)
+### 2.0.9 - July 25, 2016
+
+**Improvements**
+
+- Facebook texts are now localized according to the site's locale.
 
 **Additions**
 
-- Added Hungarian translations, thanks to Daniel Kocsis!
+- Added Hungarian translations, thanks to Daniel Kocsis.
+- Added Polish translations, thanks to Sophia Davenport.
 
 
 #### 2.0.8 - July 1, 2015
