@@ -135,7 +135,9 @@ class RFBP_Public {
 		<!-- Recent Facebook Posts v<?php echo RFBP_VERSION; ?> - https://wordpress.org/plugins/recent-facebook-posts/ -->
 		<div class="recent-facebook-posts rfbp rfbp-container rfbp-<?php echo $atts['origin']; ?>">
 			<?php
-
+		
+		apply_filters( 'rfbp_render_before' );
+		
 		if ( $posts && ! empty( $posts ) ) {
 
 			if ( $atts['el'] == 'li' ) { echo '<ul class="rfbp-posts-wrap">'; }
@@ -239,14 +241,15 @@ class RFBP_Public {
 			<?php if ( $atts['show_page_link'] ) { ?>
 				<p class="rfbp-page-link-wrap"><a class="rfbp-page-link" href="<?php echo esc_url( 'https://www.facebook.com/' . $opts['fb_id'] . '/' ); ?>" rel="external nofollow" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $opts['page_link_text'] ); ?></a></p>
 			<?php } ?>
-
+			
+			<?php apply_filters( 'rfbp_render_after' ); ?>
 			</div>
 			<!-- / Recent Facebook Posts -->
 			<?php
 		$output = ob_get_contents();
 		ob_end_clean();
 
-		return $output;
+		return apply_filters( 'rfbp_render_output', $output );
 	}
 
 }
