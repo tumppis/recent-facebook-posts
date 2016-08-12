@@ -128,10 +128,7 @@ class RFBP_Public {
 			'show_link_previews' => $opts['load_css']
 		);
 
-		$atts = shortcode_atts( $defaults, $atts );
-		
-		$post_classes = array();
-		$post_classes[] = 'rfbp-post';		
+		$atts = shortcode_atts( $defaults, $atts );	
 
 		ob_start();
 ?>
@@ -147,6 +144,8 @@ class RFBP_Public {
 			$link_target = ( $opts['link_new_window'] ) ? "_blank" : '';
 
 			foreach ( $posts as $p ) {
+				$post_classes = array();
+				$post_classes[] = 'rfbp-post';	
 
 				$shortened = false;
 				$content = $p['content'];
