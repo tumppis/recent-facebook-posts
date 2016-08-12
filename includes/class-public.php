@@ -129,6 +129,9 @@ class RFBP_Public {
 		);
 
 		$atts = shortcode_atts( $defaults, $atts );
+		
+		$post_classes = array();
+		$post_classes[] = 'rfbp-post';		
 
 		ob_start();
 ?>
@@ -147,6 +150,10 @@ class RFBP_Public {
 
 				$shortened = false;
 				$content = $p['content'];
+				
+				if ( $opts['img_size'] !== 'dont_show' && isset( $p['image'] ) && ! empty( $p['image'] ) ) {
+				    $post_classes[] = 'rfbp-post-with-media';
+				}				
 
 				// shorten content if it exceed the set excerpt length
 				if ( strlen( $content ) > $atts['excerpt_length'] ) {
@@ -158,7 +165,7 @@ class RFBP_Public {
 				}
 ?>
 
-					<<?php echo $atts['el']; ?> class="rfbp-post">
+					<<?php echo $atts['el']; ?> class="<?php echo implode(" ", $post_classes); ?>">
 					<h4 class="rfbp-heading"><a class="rfbp-link" href="<?php echo $p['post_link']; ?>" rel="external nofollow" target="<?php echo $link_target; ?>">
 						<?php echo $p['name']; ?>
 					</a></h4>
