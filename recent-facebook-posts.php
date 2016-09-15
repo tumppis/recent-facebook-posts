@@ -54,7 +54,7 @@ function _rfbp_bootstrap() {
 		include_once RFBP_PLUGIN_DIR . 'includes/functions/template.php';
 		require RFBP_PLUGIN_DIR . 'includes/class-public.php';
 
-		$rfbp_public = new RFBP_Public( $settings );
+		$rfbp_public = RFBP_Public::instance( $settings );
 		$rfbp_public->add_hooks();
 
 	} elseif( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) {

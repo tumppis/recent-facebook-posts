@@ -12,12 +12,29 @@ class RFBP_Public {
 	protected $settings;
 
 	/**
+	 * @var RFBP_Public
+	 */
+	private static $instance;
+
+	/**
 	 * Constructor
 	 *
 	 * @param array $settings
 	 */
-	public function __construct( $settings ) {
+	private function __construct( $settings = null ) {
+		if( empty( $settings ) ) {
+			$settings = rfbp_get_settings();
+		}
+
 		$this->settings = $settings;
+	}
+
+	public static function instance( $settings = null ) {
+		if( empty( self::$instance ) ) {
+			self::$instance = new RFBP_Public( $settings );
+		}
+
+		return self::$instance;
 	}
 
 	/**
