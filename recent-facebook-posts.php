@@ -45,6 +45,8 @@ function _rfbp_bootstrap() {
 	// Include Global code
 	require RFBP_PLUGIN_DIR . 'includes/functions/global.php';
 
+    $settings = rfbp_get_settings();
+
 	if( ! is_admin() ) {
 
 		// frontend requests
@@ -52,14 +54,14 @@ function _rfbp_bootstrap() {
 		include_once RFBP_PLUGIN_DIR . 'includes/functions/template.php';
 		require RFBP_PLUGIN_DIR . 'includes/class-public.php';
 
-		$rfbp_public = RFBP_Public::instance();
+		$rfbp_public = new RFBP_Public( $settings );
 		$rfbp_public->add_hooks();
 
 	} elseif( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) {
 
 		// admin requests
 		require RFBP_PLUGIN_DIR . 'includes/class-admin.php';
-		$admin = new RFBP_Admin();
+		$admin = new RFBP_Admin( $settings );
 		$admin->add_hooks();
 
 	}

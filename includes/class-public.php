@@ -9,29 +9,15 @@ class RFBP_Public {
 	/**
 	 * @var array
 	 */
-	protected $options;
-
-	/**
-	 * @var
-	 */
-	protected static $instance;
-
-	/**
-	 * @return RFBP_Public
-	 */
-	public static function instance() {
-		if( ! self::$instance ) {
-			self::$instance = new RFBP_Public();
-		}
-
-		return self::$instance;
-	}
+	protected $settings;
 
 	/**
 	 * Constructor
+	 *
+	 * @param array $settings
 	 */
-	private function __construct() {
-		$this->options = rfbp_get_settings();
+	public function __construct( $settings ) {
+		$this->settings = $settings;
 	}
 
 	/**
@@ -41,7 +27,7 @@ class RFBP_Public {
 		add_shortcode( 'recent_facebook_posts', array( $this, 'output' ) );
 		add_shortcode( 'recent-facebook-posts', array( $this, 'output' ) );
 
-		if ( $this->options['load_css'] ) {
+		if ( $this->settings['load_css'] ) {
 			add_action( 'wp_enqueue_scripts', array( $this, 'load_css' ) );
 		}
 
@@ -106,10 +92,12 @@ class RFBP_Public {
 	 * @param array $atts
 	 *
 	 * @return string
+	 *
+	 * TODO: Stop jumping in and out of PHP mode here.
 	 */
 	public function output( $atts = array() ) {
 
-		$opts = $this->options;
+		$opts = $this->settings;
 		$posts = $this->get_posts();
 
 		// upgrade from old `show_link` parameter.
