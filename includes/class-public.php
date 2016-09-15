@@ -121,7 +121,7 @@ class RFBP_Public {
 		ob_start();
 ?>
 		<!-- Recent Facebook Posts v<?php echo RFBP_VERSION; ?> - https://wordpress.org/plugins/recent-facebook-posts/ -->
-		<div class="recent-facebook-posts rfbp rfbp-container rfbp-<?php echo $atts['origin']; ?>">
+		<div class="recent-facebook-posts rfbp rfbp-container rfbp-<?php echo esc_attr( $atts['origin'] ); ?>">
 			<?php
 		
 		do_action( 'rfbp_render_before' );
@@ -134,13 +134,11 @@ class RFBP_Public {
 			$link_target = ( $opts['link_new_window'] ) ? "_blank" : '';
 
 			foreach ( $posts as $p ) {
-				$post_classes = array();
-				$post_classes[] = 'rfbp-post';	
-
+				$post_classes = array( 'rfbp-post' );
 				$shortened = false;
 				$content = $p['content'];
 				
-				if ( $opts['img_size'] !== 'dont_show' && isset( $p['image'] ) && ! empty( $p['image'] ) ) {
+				if ( $opts['img_size'] !== 'dont_show' && ! empty( $p['image'] ) ) {
 				    $post_classes[] = 'rfbp-post-with-media';
 				}				
 
@@ -153,11 +151,15 @@ class RFBP_Public {
 					}
 				}
 ?>
-
 					<<?php echo $atts['el']; ?> class="<?php echo implode(" ", $post_classes); ?>">
-					<h4 class="rfbp-heading"><a class="rfbp-link" href="<?php echo $p['post_link']; ?>" rel="external nofollow" target="<?php echo $link_target; ?>">
-						<?php echo $p['name']; ?>
-					</a></h4>
+
+					<?php if ( ! empty( $p['name'] ) ) { ?>
+					<h4 class="rfbp-heading">
+						<a class="rfbp-link" href="<?php echo esc_attr( $p['post_link'] ); ?>" rel="external nofollow" target="<?php echo esc_attr( $link_target ); ?>">
+							<?php echo $p['name']; ?>
+						</a>
+					</h4>
+					<?php } // end if name not empty ?>
 					<div class="rfbp-text">
 
 						<?php
@@ -175,7 +177,7 @@ class RFBP_Public {
 						<a class="rfbp-link" href="<?php echo $p['link_url']; ?>" rel="external nofollow" target="<?php echo $link_target; ?>">
 							<?php if ( !empty( $p['link_image'] ) && ( apply_filters( 'rfbp_show_link_images', true ) !== false ) ) { ?>
 							<span class="rfbp-link-image-wrap">
-								<img class="rfbp-link-image" src="<?php echo esc_attr( $p['link_image'] ); ?>" width="114" />
+								<img class="rfbp-link-image" src="<?php echo esc_attr( $p['link_image'] ); ?>" width="114" alt="<?php echo esc_attr( $p['link_name'] ); ?>" />
 							</span>
 							<?php } ?>
 
@@ -189,24 +191,25 @@ class RFBP_Public {
 
 					<?php } ?>
 
-					<?php if ( $opts['img_size'] !== 'dont_show' && isset( $p['image'] ) && ! empty( $p['image'] ) ) {
+					<?php if ( $opts['img_size'] !== 'dont_show' && ! empty( $p['image'] ) ) {
 
-					// grab bigger video thumbnail (hacky)
-					if ( $p['type'] === 'video' && $opts['img_size'] == 'normal' ) {
-						$p['image'] = str_ireplace( array( "_s.jpg", "_s.png" ), array( "_n.jpg", "_n.png" ), $p['image'] );
-					}
+						// grab bigger video thumbnail (hacky)
+						if ( $p['type'] === 'video' && $opts['img_size'] == 'normal' ) {
+							$p['image'] = str_ireplace( array( "_s.jpg", "_s.png" ), array( "_n.jpg", "_n.png" ), $p['image'] );
+						}
 
-					?>
-					<p class="rfbp-image-wrap">
-						<a class="rfbp-image-link" target="<?php echo $link_target; ?>" href="<?php echo $p['url']; ?>" rel="external nofollow">
-							<?php $max_img_width = ( ! empty( $opts['img_width'] ) ) ? $opts['img_width'].'px' : '100%'; $max_img_height = ( !empty( $opts['img_height'] ) ) ? $opts['img_height'].'px' : 'none'; ?>
-							<img class="rfbp-image" src="<?php echo $p['image']; ?>" style="<?php echo esc_attr( "max-width: {$max_img_width}; max-height: {$max_img_height}" ); ?>" alt="" />
-						</a>
-						<?php if ( $p['type'] === 'video' ) { ?>
-						<span class="rfbp-video-link"></span>
-						<?php } ?>
-					</p>
-					<?php } ?>
+						?>
+						<p class="rfbp-image-wrap">
+							<a class="rfbp-image-link" target="<?php echo $link_target; ?>" href="<?php echo $p['url']; ?>" rel="external nofollow">
+								<?php $max_img_width = ( ! empty( $opts['img_width'] ) ) ? $opts['img_width'].'px' : '100%'; $max_img_height = ( !empty( $opts['img_height'] ) ) ? $opts['img_height'].'px' : 'none'; ?>
+								<img class="rfbp-image" src="<?php echo $p['image']; ?>" style="<?php echo esc_attr( "max-width: {$max_img_width}; max-height: {$max_img_height}" ); ?>" alt="" />
+							</a>
+							<?php if ( $p['type'] === 'video' ) { ?>
+							<span class="rfbp-video-link"></span>
+							<?php } ?>
+						</p>
+					<?php } // end if img showing & not empty ?>
+
 					<p class="rfbp-post-link-wrap">
 						<a target="<?php echo $link_target; ?>" class="rfbp-post-link" href="<?php echo esc_url( $p['url'] ); ?>" rel="external nofolloW">
 							<?php if ( $atts['likes'] ) { ?><span class="rfbp-like-count"><?php echo absint( $p['like_count'] ); ?> <span><?php _e( "likes", 'recent-facebook-posts' ); ?><?php if ( $atts['comments'] ) { ?>, <?php } ?></span></span><?php } ?>
