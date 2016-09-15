@@ -37,8 +37,10 @@ define( 'RFBP_PLUGIN_DIR', dirname( __FILE__ ) . '/' );
 
 /**
  * Load the plugin files at `plugins_loaded:10`
+ *
+ * @ignore
  */
-function __rfbp_bootstrap() {
+function _rfbp_bootstrap() {
 
 	// Include Global code
 	require RFBP_PLUGIN_DIR . 'includes/functions/global.php';
@@ -64,5 +66,5 @@ function __rfbp_bootstrap() {
 
 }
 
-add_action( 'plugins_loaded', '__rfbp_bootstrap' );
+add_action( 'plugins_loaded', '_rfbp_bootstrap' );
 
