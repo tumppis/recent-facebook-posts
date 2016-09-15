@@ -1,6 +1,19 @@
 Changelog
 ============
 
+### 2.0.10 - September 15, 2016
+
+**Improvements**
+
+- Added additional CSS class to post container when post has media elements. Thanks [Robbert van Mourik](https://github.com/rvmourik)!
+- Accessibility improvements to output.
+
+**Additions**
+
+- Added Norwegian translations, thanks to Joakim O. Saunes.
+- Added `rfbp_render_before` and `rfbp_render_after` filters. Thanks [Justin](https://github.com/dannyvankooten/recent-facebook-posts/pull/19)!
+
+
 ### 2.0.9 - July 25, 2016
 
 **Improvements**
