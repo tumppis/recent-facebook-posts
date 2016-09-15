@@ -3,7 +3,7 @@ Contributors: DvanKooten
 Donate link: https://dannyvankooten.com/donate/
 Tags: facebook, posts, fb, widget, facebook widget, facebook posts
 Requires at least: 3.8
-Tested up to: 4.5.3
+Tested up to: 4.6.1
 Stable tag: 2.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -39,14 +39,13 @@ Italian (it_IT) - [Daniele Chianucci](http://frozen.me/)
 Turkish (tr_TR) - Halukcan Pehlivanoğlu
 Hungarian (hu_HU) - Daniel Kocsis
 Polish (pl_PL) - Sofiah Davenport
-
-_Looking for more translations.._
+Norwegian (no_NO) - Joakim O. Saunes
 
 If you have [created your own language pack](http://codex.wordpress.org/Translating_WordPress), you can send me the language files so that I can bundle it into the Recent Facebook Posts plugin. [You can download the latest POT file here](http://plugins.svn.wordpress.org/recent-facebook-posts/trunk/languages/recent-facebook-posts.pot).
 
 **Other Links**
 
-* [Contribute to the Recent Facebook Posts plugin on GitHub](https://github.com/dannyvankooten/wordpress-recent-facebook-posts)
+* [Contribute to the Recent Facebook Posts plugin on GitHub](https://github.com/dannyvankooten/recent-facebook-posts)
 * Using MailChimp to send out email newsletters? You should [try MailChimp for WordPress](https://wordpress.org/plugins/mailchimp-for-wp/).
 * Want an unobtrusive conversion booster? Have a look at the [Boxzilla pop-up plugin](https://wordpress.org/plugins/boxzilla/).
 * Follow [@DannyvanKooten](https://twitter.com/DannyvanKooten) or [@ibericode](https://twitter.com/ibericode) on Twitter.
@@ -75,7 +74,7 @@ This plugin requires a Facebook application to fetch posts from Facebook.
 * Take a look at the [screenshots](https://wordpress.org/extend/plugins/recent-facebook-posts/screenshots/), they will tell you which values from Facebook you need.
 * The plugin works with personal profiles, but only to a certain extend. I am not actively supporting personal profiles because of many privacy settings related issues.
 
-Ran into an error? Have a look at the [FAQ](https://wordpress.org/plugins/recent-facebook-posts/faq/) for solutions to common problems or [open an issue on GitHub](https://github.com/dannyvankooten/wordpress-recent-facebook-posts/issues).
+Ran into an error? Have a look at the [FAQ](https://wordpress.org/plugins/recent-facebook-posts/faq/) for solutions to common problems or [open an issue on GitHub](https://github.com/dannyvankooten/recent-facebook-posts/issues).
 
 == Frequently Asked Questions ==
 
@@ -216,7 +215,7 @@ add_filter('rfbp_cache_time', 'my_rfbp_cache_time');
 
 **Fixes**
 
-- Issue where settings page would just load an empty screen. ([Issue #6](https://github.com/dannyvankooten/wordpress-recent-facebook-posts/issues/6))
+- Issue where settings page would just load an empty screen. ([Issue #6](https://github.com/dannyvankooten/recent-facebook-posts/issues/6))
 
 **Improvements**
 
@@ -233,7 +232,7 @@ add_filter('rfbp_cache_time', 'my_rfbp_cache_time');
 **Additions**
 
 - Added Spanish language, thanks [Hermann Bravo](http://hbravo.com/)
-- Added `rfpb_widget_options` filter to filter all widget options. Closes [#3](https://github.com/dannyvankooten/wordpress-recent-facebook-posts/issues/3), thanks [KilukruMedia](https://github.com/KilukruMedia)
+- Added `rfpb_widget_options` filter to filter all widget options. Closes [#3](https://github.com/dannyvankooten/recent-facebook-posts/issues/3), thanks [KilukruMedia](https://github.com/KilukruMedia)
 - Added [languages/recent-facebook-posts.pot](http://plugins.svn.wordpress.org/recent-facebook-posts/trunk/languages/recent-facebook-posts.pot) file for easier translating. Please send in your language files (.po and .mo) if you created any.
 
 #### 2.0.2 - September 17, 2014
