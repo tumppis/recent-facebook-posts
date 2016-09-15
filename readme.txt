@@ -4,7 +4,7 @@ Donate link: https://dannyvankooten.com/donate/
 Tags: facebook, posts, fb, widget, facebook widget, facebook posts
 Requires at least: 3.8
 Tested up to: 4.6.1
-Stable tag: 2.0.9
+Stable tag: 2.0.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -158,6 +158,19 @@ add_filter('rfbp_cache_time', 'my_rfbp_cache_time');
 == Changelog ==
 
 
+### 2.0.10 - September 15, 2016
+
+**Improvements**
+
+- Added additional CSS class to post container when post has media elements. Thanks [Robbert van Mourik](https://github.com/rvmourik)!
+- Accessibility improvements to output.
+
+**Additions**
+
+- Added Norwegian translations, thanks to Joakim O. Saunes.
+- Added `rfbp_render_before` and `rfbp_render_after` filters. Thanks [Justin](https://github.com/dannyvankooten/recent-facebook-posts/pull/19)!
+
+
 ### 2.0.9 - July 25, 2016
 
 **Improvements**
@@ -215,7 +228,7 @@ add_filter('rfbp_cache_time', 'my_rfbp_cache_time');
 
 **Fixes**
 
-- Issue where settings page would just load an empty screen. ([Issue #6](https://github.com/dannyvankooten/recent-facebook-posts/issues/6))
+- Issue where settings page would just load an empty screen. ([Issue #6](https://github.com/dannyvankooten/wordpress-recent-facebook-posts/issues/6))
 
 **Improvements**
 
@@ -232,7 +245,7 @@ add_filter('rfbp_cache_time', 'my_rfbp_cache_time');
 **Additions**
 
 - Added Spanish language, thanks [Hermann Bravo](http://hbravo.com/)
-- Added `rfpb_widget_options` filter to filter all widget options. Closes [#3](https://github.com/dannyvankooten/recent-facebook-posts/issues/3), thanks [KilukruMedia](https://github.com/KilukruMedia)
+- Added `rfpb_widget_options` filter to filter all widget options. Closes [#3](https://github.com/dannyvankooten/wordpress-recent-facebook-posts/issues/3), thanks [KilukruMedia](https://github.com/KilukruMedia)
 - Added [languages/recent-facebook-posts.pot](http://plugins.svn.wordpress.org/recent-facebook-posts/trunk/languages/recent-facebook-posts.pot) file for easier translating. Please send in your language files (.po and .mo) if you created any.
 
 #### 2.0.2 - September 17, 2014
