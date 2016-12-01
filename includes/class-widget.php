@@ -71,7 +71,11 @@ class RFBP_Widget extends WP_Widget {
 			<input type="checkbox" id="<?php echo $this->get_field_id( 'show_link_previews' ); ?>" name="<?php echo $this->get_field_name( 'show_link_previews' ); ?>" value="1" <?php if ( $instance['show_link_previews'] ) { ?>checked="1"<?php } ?> />
 			<label for="<?php echo $this->get_field_id( 'show_link_previews' ); ?>"><?php _e( 'Show link previews?', 'recent-facebook-posts' ); ?></label>
 		</p>
-
+		<p>
+			<label>Backup image</label>
+			<?php pco_image_field( $this, $instance ); ?>
+		</p>
+		
 		<?php
 	}
 
@@ -84,6 +88,7 @@ class RFBP_Widget extends WP_Widget {
 		$instance['show_comment_count'] = isset( $new_instance['show_comment_count'] );
 		$instance['show_page_link'] = isset( $new_instance['show_page_link'] );
 		$instance['show_link_previews'] = isset( $new_instance['show_link_previews'] );
+		$instance['image_id'] = $new_instance['image_id'];
 		return $instance;
 	}
 
@@ -102,6 +107,11 @@ class RFBP_Widget extends WP_Widget {
 		if ( ! empty( $title ) ) { 
 			echo $args['before_title'] . $title . $args['after_title'];
 		}
+		
+		$backup_image_id = null;
+		if (isset($instance['image_id'])) {
+			$backup_image_id = $instance['image_id'];
+		}
 
 		recent_facebook_posts( array(
 				'origin' => 'widget',
@@ -111,7 +121,8 @@ class RFBP_Widget extends WP_Widget {
 				'excerpt_length' => $instance['excerpt_length'],
 				'el' => apply_filters( 'rfbp_widget_element', 'div' ),
 				'show_page_link' => $instance['show_page_link'],
-				'show_link_previews' => $instance['show_link_previews']
+				'show_link_previews' => $instance['show_link_previews'],
+				'backup_image_id' => $instance['image_id']
 			) );
 
 

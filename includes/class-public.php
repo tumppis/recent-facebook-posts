@@ -58,9 +58,44 @@ class RFBP_Public {
 	 * Load CSS
 	 */
 	public function load_css() {
-		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+		/*$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 		wp_register_style( 'recent-facebook-posts-css', plugins_url( 'recent-facebook-posts/assets/css/default' . $suffix . '.css' ), array(), RFBP_VERSION );
-		wp_enqueue_style( 'recent-facebook-posts-css' );
+		wp_enqueue_style( 'recent-facebook-posts-css' );*/
+	}
+
+	/**
+	 * Get page
+	 *
+	 * @return array
+	 */
+	public function get_page() {
+
+		// try to get posts from cache
+		$page = json_decode( get_transient( 'rfbp_page' ), true );
+		
+		if ( is_array( $page ) ) {
+			return $page;
+		}
+
+		// fetch posts from FB API
+		$api = rfbp_get_api();
+		$page = $api->get_page();
+		
+		if( is_array( $page ) ) {
+
+			// API call succeeded, store posts in cache
+			// JSON encode posts before storing
+			$encoded_page = json_encode( $page );
+			set_transient( 'rfbp_page', $encoded_page, 2629744 ); // 1 month
+			
+
+			return $page;
+		}
+
+		
+
+		return array();
+
 	}
 
 	/**
@@ -72,6 +107,7 @@ class RFBP_Public {
 
 		// try to get posts from cache
 		$posts = json_decode( get_transient( 'rfbp_posts' ), true );
+		
 		if ( is_array( $posts ) ) {
 			return $posts;
 		}
@@ -79,7 +115,7 @@ class RFBP_Public {
 		// fetch posts from FB API
 		$api = rfbp_get_api();
 		$posts = $api->get_posts();
-
+		
 		if( is_array( $posts ) ) {
 
 			// API call succeeded, store posts in cache
@@ -115,8 +151,10 @@ class RFBP_Public {
 	public function output( $atts = array() ) {
 
 		$opts = $this->settings;
+		$page = $this->get_page();
 		$posts = $this->get_posts();
-
+		
+		
 		// upgrade from old `show_link` parameter.
 		if ( isset( $atts['show_link'] ) ) {
 			$atts['show_page_link'] = $atts['show_link'];
@@ -130,7 +168,8 @@ class RFBP_Public {
 			'el' => 'div',
 			'origin' => 'shortcode',
 			'show_page_link' => false,
-			'show_link_previews' => $opts['load_css']
+			'show_link_previews' => $opts['load_css'],
+			'backup_image_id' => null
 		);
 
 		$atts = shortcode_atts( $defaults, $atts );	
@@ -138,14 +177,14 @@ class RFBP_Public {
 		ob_start();
 ?>
 		<!-- Recent Facebook Posts v<?php echo RFBP_VERSION; ?> - https://wordpress.org/plugins/recent-facebook-posts/ -->
-		<div class="recent-facebook-posts rfbp rfbp-container rfbp-<?php echo esc_attr( $atts['origin'] ); ?>">
+		<div class="n-feed-item">
+			<span class="n-box n-facebook">Facebook</span>
 			<?php
 		
 		do_action( 'rfbp_render_before' );
 		
 		if ( $posts && ! empty( $posts ) ) {
 
-			if ( $atts['el'] == 'li' ) { echo '<ul class="rfbp-posts-wrap">'; }
 
 			$posts = array_slice( $posts, 0, $atts['number'] );
 			$link_target = ( $opts['link_new_window'] ) ? "_blank" : '';
@@ -154,6 +193,10 @@ class RFBP_Public {
 				$post_classes = array( 'rfbp-post' );
 				$shortened = false;
 				$content = $p['content'];
+				
+				if ($p['image'] == null && $atts['backup_image_id'] != null) {
+					$p['image'] = wp_get_attachment_image_src( $atts['backup_image_id'], [600,300] )[0]; ;
+				}
 				
 				if ( $opts['img_size'] !== 'dont_show' && ! empty( $p['image'] ) ) {
 				    $post_classes[] = 'rfbp-post-with-media';
@@ -168,15 +211,22 @@ class RFBP_Public {
 					}
 				}
 ?>
-					<<?php echo $atts['el']; ?> class="<?php echo implode(" ", $post_classes); ?>">
-
-					<?php if ( ! empty( $p['name'] ) ) { ?>
-					<h4 class="rfbp-heading">
-						<a class="rfbp-link" href="<?php echo esc_attr( $p['post_link'] ); ?>" rel="external nofollow" target="<?php echo esc_attr( $link_target ); ?>">
-							<?php echo $p['name']; ?>
+				<div class="n-feed-content">	
+					<div class="media">
+					  <div class="media-left">
+						<a class="rfbp-link" href="<?php echo esc_attr( $page['url'] ); ?>" rel="external nofollow" target="<?php echo esc_attr( $link_target ); ?>">
+						  <img src="<?php echo $page["image"]; ?>" class="img-responsive" alt="<?php echo $page["name"]; ?>">
 						</a>
-					</h4>
-					<?php } // end if name not empty ?>
+					  </div>
+					  <div class="media-body">
+						<h4 class="media-heading">
+						<a class="rfbp-link" href="<?php echo esc_attr( $page['url'] ); ?>" rel="external nofollow" target="<?php echo esc_attr( $link_target ); ?>">
+							<?php echo $page["name"]; ?>
+						</a></h4>
+						<span class="rfbp-timestamp" title="<?php printf( __( '%1$s at %2$s', 'recent-facebook-posts' ), date( 'l, F j, Y', $p['timestamp'] ), date( 'G:i', $p['timestamp'] ) ); ?>"><?php echo rfbp_time_ago( $p['timestamp'] ); ?></span>
+					  </div>
+					</div>
+					
 					<div class="rfbp-text">
 
 						<?php
@@ -208,6 +258,17 @@ class RFBP_Public {
 
 					<?php } ?>
 
+
+					<p class="rfbp-post-link-wrap">
+						<a target="<?php echo $link_target; ?>" class="rfbp-post-link" href="<?php echo esc_url( $p['url'] ); ?>" rel="external nofollow">
+							<?php if ( $atts['likes'] ) { ?><span class="fa fa-thumbs-up"></span> <?php echo absint( $p['like_count'] ); ?><?php if ( $atts['comments'] ) { ?> <?php } ?><?php } ?>
+							<?php if ( $atts['comments'] ) { ?><span class="fa fa-comments"></span> <?php echo absint( $p['comment_count'] ); ?><?php } ?>
+						
+							
+						</a>
+					</p>
+					
+					</div>
 					<?php if ( $opts['img_size'] !== 'dont_show' && ! empty( $p['image'] ) ) {
 
 						// grab bigger video thumbnail (hacky)
@@ -216,34 +277,20 @@ class RFBP_Public {
 						}
 
 						?>
-						<p class="rfbp-image-wrap">
-							<a class="rfbp-image-link" target="<?php echo $link_target; ?>" href="<?php echo $p['url']; ?>" rel="external nofollow">
-								<?php $max_img_width = ( ! empty( $opts['img_width'] ) ) ? $opts['img_width'].'px' : '100%'; $max_img_height = ( !empty( $opts['img_height'] ) ) ? $opts['img_height'].'px' : 'none'; ?>
-								<img class="rfbp-image" src="<?php echo $p['image']; ?>" style="<?php echo esc_attr( "max-width: {$max_img_width}; max-height: {$max_img_height}" ); ?>" alt="" />
-							</a>
+								<div class="n-boxed-image" style="background-image: url(<?php echo $p['image']; ?>)"></div>
+								
+							
 							<?php if ( $p['type'] === 'video' ) { ?>
 							<span class="rfbp-video-link"></span>
 							<?php } ?>
-						</p>
+						
 					<?php } // end if img showing & not empty ?>
-
-					<p class="rfbp-post-link-wrap">
-						<a target="<?php echo $link_target; ?>" class="rfbp-post-link" href="<?php echo esc_url( $p['url'] ); ?>" rel="external nofolloW">
-							<?php if ( $atts['likes'] ) { ?><span class="rfbp-like-count"><?php echo absint( $p['like_count'] ); ?> <span><?php _e( "likes", 'recent-facebook-posts' ); ?><?php if ( $atts['comments'] ) { ?>, <?php } ?></span></span><?php } ?>
-							<?php if ( $atts['comments'] ) { ?><span class="rfbp-comment-count"><?php echo absint( $p['comment_count'] ); ?> <span><?php _e( "comments", 'recent-facebook-posts' ); ?></span></span><?php } ?>
-							<?php if ( $atts['likes'] || $atts['comments'] ) { ?> &sdot; <?php } ?>
-							<span class="rfbp-timestamp" title="<?php printf( __( '%1$s at %2$s', 'recent-facebook-posts' ), date( 'l, F j, Y', $p['timestamp'] ), date( 'G:i', $p['timestamp'] ) ); ?>"><?php echo rfbp_time_ago( $p['timestamp'] ); ?></span>
-						</a>
-					</p>
-					</<?php echo $atts['el']; ?>>
+					
 				<?php
 
 			} // end foreach $posts
 
-			// close list
-			if ( $atts['el'] === 'li' ) {
-				echo '</ul>';
-			}
+			
 
 		} else {
 			?><p><?php _e( "No recent Facebook posts to show", 'recent-facebook-posts' ); ?></p><?php

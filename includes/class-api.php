@@ -32,7 +32,45 @@ class RFBP_API {
 		$this->app_secret = $app_secret;
 		$this->fb_id = $fb_id;
 	}
+	
+	/**
+	 * Fetch posts from the given Facebook page.
+	 *
+	 * @return array|bool
+	 */
+	public function get_page()
+	{
+		$result = $this->call("{$this->fb_id}", array(
+			'fields' => 'id,picture,name,link'
+		));
+		
+		
+		if( is_object( $result ) ) {
+			return $this->format_page_data( $result );
+			
+		} else {
+			$this->error = __( 'Facebook error:', 'recent-facebook-posts' ) . ' <code>' . $result->error->message . '</code>';
+			return false;
+		}
 
+		return false;
+	}
+	
+	/**
+	 * @param $data
+	 *
+	 * @return array
+	 */
+	private function format_page_data( $data ) {
+		$page = array();
+			
+		$page['name'] = $data->name;
+		$page['image'] = $data->picture->data->url;
+		$page['url'] = $data->link;
+				
+		return $page;
+	}
+	
 	/**
 	 * Fetch posts from the given Facebook page.
 	 *
@@ -40,12 +78,14 @@ class RFBP_API {
 	 */
 	public function get_posts()
 	{
+		
 		$result = $this->call("{$this->fb_id}/posts", array(
 			'fields' => 'id,picture,type,from,message,status_type,object_id,name,caption,description,link,created_time,comments.limit(1).summary(true),likes.limit(1).summary(true)'
 		));
 
 		if( is_object( $result ) ) {
 			if( isset( $result->data ) ) {
+				
 				return $this->format_data( $result->data );
 			} elseif( isset( $result->error->message ) ) {
 				$this->error = __( 'Facebook error:', 'recent-facebook-posts' ) . ' <code>' . $result->error->message . '</code>';

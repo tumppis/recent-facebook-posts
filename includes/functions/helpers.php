@@ -29,7 +29,7 @@ function rfbp_time_ago( $timestamp ) {
 	$diff = time() - (int) $timestamp;
 
 		if ($diff == 0) 
-			return __( 'just now', "recent-facebook-posts" );
+			return __( 'juuri nyt', "recent-facebook-posts" );
 
 		$intervals = array
 		(
@@ -48,35 +48,35 @@ function rfbp_time_ago( $timestamp ) {
 
 		switch($time_unit) {
 			case 'year':
-				return sprintf( _n( '1 year ago', '%d years ago', $value, "recent-facebook-posts" ), $value );
+				return sprintf( _n( '1 year ago', '%d vuotta sitten', $value, "recent-facebook-posts" ), $value );
 			break;
 
 			case 'month':
-				return sprintf( _n( '1 month ago', '%d months ago', $value, "recent-facebook-posts" ), $value );
+				return sprintf( _n( '1 month ago', '%d kuukautta sitten', $value, "recent-facebook-posts" ), $value );
 			break;
 
 			case 'week':
-				return sprintf( _n( '1 week ago', '%d weeks ago', $value, "recent-facebook-posts" ), $value );
+				return sprintf( _n( '1 week ago', '%d viikko sitten', $value, "recent-facebook-posts" ), $value );
 			break;
 
 			case 'day':
-				return sprintf( _n( '1 day ago', '%d days ago', $value, "recent-facebook-posts" ), $value );
+				return sprintf( _n( '1 day ago', '%d päivää sitten', $value, "recent-facebook-posts" ), $value );
 			break;
 
 			case 'hour':
-				return sprintf( _n( '1 hour ago', '%d hours ago', $value, "recent-facebook-posts" ), $value );
+				return sprintf( _n( '1 hour ago', '%d tuntia sitten', $value, "recent-facebook-posts" ), $value );
 			break;
 
 			case 'minute':
-				return sprintf( _n( '1 minute ago', '%d minutes ago', $value, "recent-facebook-posts" ), $value );
+				return sprintf( _n( '1 minute ago', '%d minuuttia sitten', $value, "recent-facebook-posts" ), $value );
 			break;
 
 			case 'second':
-				return sprintf( _n( '1 second ago', '%d seconds ago', $value, "recent-facebook-posts" ), $value );
+				return sprintf( _n( '1 second ago', '%d sekuntia sitten', $value, "recent-facebook-posts" ), $value );
 			break;
 
 			default:
-				return sprintf( __( 'Some time ago', "recent-facebook-posts" ) );
+				return sprintf( __( 'Jonkun aikaa sitten', "recent-facebook-posts" ) );
 			break;
 		}
 		

@@ -1,17 +1,15 @@
 <?php
 /*
-Plugin Name: Recent Facebook Posts
-Plugin URI: https://dannyvankooten.com/donate/
+Plugin Name: Recent Facebook Posts Forked
+Plugin URI: https://github.com/tumppis/recent-facebook-posts
 Description: Lists most recent posts from a public Facebook page.
 Version: 2.0.10
-Author: Danny van Kooten
-Author URI: https://dannyvankooten.com/
+Author: Tuomas Glad
 Text Domain: recent-facebook-posts
 Domain Path: /languages/
 License: GPL3 or later
 
-Recent Facebook Posts Plugin
-Copyright (C) 2012-2015, Danny van Kooten, support@dannyvankooten.com
+Recent Facebook Posts Plugin Forked
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
